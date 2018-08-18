@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { filterTable } from '../actions';
 import ProductTable from '../components/ProductTable';
 import { filterableTable } from '../styles/filterableTable.scss';
+import { filterTableSaga } from '../sagas';
 
 const FilterableTable = ({ filter, onFilter }) => {
     let input;
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onFilter: filterText => dispatch(filterTable(filterText))
+        onFilter: filterText => dispatch(filterTableSaga(filterText))
     };
 };
 
